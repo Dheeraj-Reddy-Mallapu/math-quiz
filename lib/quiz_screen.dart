@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:math_quiz/widgets.dart';
 import 'quiz.dart';
 import 'package:restart_app/restart_app.dart';
 
@@ -38,27 +39,7 @@ class _QuizState extends State<Quiz> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(50.0),
-                  child: Text(
-                    q1,
-                    style: const TextStyle(fontSize: 75),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 50),
-              SizedBox(
-                width: 300,
-                child: TextFormField(
-                  controller: inputAnswer1,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Enter your answer'),
-                ),
-              ),
-              const SizedBox(height: 50),
+              Widgets(qText: q1, textControl: inputAnswer1),
               ElevatedButton(
                 onPressed: () {
                   double answer = double.parse(inputAnswer1.text.trim());
@@ -83,27 +64,7 @@ class _QuizState extends State<Quiz> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(50.0),
-                  child: Text(
-                    q2,
-                    style: const TextStyle(fontSize: 75),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 50),
-              SizedBox(
-                width: 300,
-                child: TextFormField(
-                  controller: inputAnswer2,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Enter your answer'),
-                ),
-              ),
-              const SizedBox(height: 50),
+              Widgets(qText: q2, textControl: inputAnswer2),
               ElevatedButton(
                 onPressed: () {
                   double answer = double.parse(inputAnswer2.text.trim());
@@ -128,27 +89,7 @@ class _QuizState extends State<Quiz> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(50.0),
-                  child: Text(
-                    q3,
-                    style: const TextStyle(fontSize: 75),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 50),
-              SizedBox(
-                width: 300,
-                child: TextFormField(
-                  controller: inputAnswer3,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Enter your answer'),
-                ),
-              ),
-              const SizedBox(height: 50),
+              Widgets(qText: q3, textControl: inputAnswer3),
               ElevatedButton(
                 onPressed: () {
                   double answer = double.parse(inputAnswer3.text.trim());
@@ -173,27 +114,7 @@ class _QuizState extends State<Quiz> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(50.0),
-                  child: Text(
-                    q4,
-                    style: const TextStyle(fontSize: 75),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 50),
-              SizedBox(
-                width: 300,
-                child: TextFormField(
-                  controller: inputAnswer4,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Enter your answer'),
-                ),
-              ),
-              const SizedBox(height: 50),
+              Widgets(qText: q4, textControl: inputAnswer4),
               ElevatedButton(
                 onPressed: () {
                   double answer = double.parse(inputAnswer4.text.trim());
@@ -218,27 +139,7 @@ class _QuizState extends State<Quiz> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(50.0),
-                  child: Text(
-                    q5,
-                    style: const TextStyle(fontSize: 75),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 50),
-              SizedBox(
-                width: 300,
-                child: TextFormField(
-                  controller: inputAnswer5,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Enter your answer'),
-                ),
-              ),
-              const SizedBox(height: 50),
+              Widgets(qText: q5, textControl: inputAnswer5),
               ElevatedButton(
                 onPressed: () {
                   double answer = double.parse(inputAnswer5.text.trim());
@@ -263,27 +164,7 @@ class _QuizState extends State<Quiz> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(50.0),
-                  child: Text(
-                    q6,
-                    style: const TextStyle(fontSize: 75),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 50),
-              SizedBox(
-                width: 300,
-                child: TextFormField(
-                  controller: inputAnswer6,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Enter your answer'),
-                ),
-              ),
-              const SizedBox(height: 50),
+              Widgets(qText: q6, textControl: inputAnswer6),
               ElevatedButton(
                 onPressed: () {
                   double answer = double.parse(inputAnswer6.text.trim());
@@ -308,27 +189,7 @@ class _QuizState extends State<Quiz> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(50.0),
-                  child: Text(
-                    q7,
-                    style: const TextStyle(fontSize: 75),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 50),
-              SizedBox(
-                width: 300,
-                child: TextFormField(
-                  controller: inputAnswer7,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Enter your answer'),
-                ),
-              ),
-              const SizedBox(height: 50),
+              Widgets(qText: q7, textControl: inputAnswer7),
               ElevatedButton(
                 onPressed: () {
                   double answer = double.parse(inputAnswer7.text.trim());
@@ -353,27 +214,7 @@ class _QuizState extends State<Quiz> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(50.0),
-                  child: Text(
-                    q8,
-                    style: const TextStyle(fontSize: 75),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 50),
-              SizedBox(
-                width: 300,
-                child: TextFormField(
-                  controller: inputAnswer8,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Enter your answer'),
-                ),
-              ),
-              const SizedBox(height: 50),
+              Widgets(qText: q8, textControl: inputAnswer8),
               ElevatedButton(
                 onPressed: () {
                   double answer = double.parse(inputAnswer8.text.trim());
@@ -398,27 +239,7 @@ class _QuizState extends State<Quiz> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(50.0),
-                  child: Text(
-                    q9,
-                    style: const TextStyle(fontSize: 75),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 50),
-              SizedBox(
-                width: 300,
-                child: TextFormField(
-                  controller: inputAnswer9,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Enter your answer'),
-                ),
-              ),
-              const SizedBox(height: 50),
+              Widgets(qText: q9, textControl: inputAnswer9),
               ElevatedButton(
                 onPressed: () {
                   double answer = double.parse(inputAnswer9.text.trim());
@@ -443,27 +264,7 @@ class _QuizState extends State<Quiz> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Card(
-                child: Padding(
-                  padding: const EdgeInsets.all(50.0),
-                  child: Text(
-                    q10,
-                    style: const TextStyle(fontSize: 75),
-                  ),
-                ),
-              ),
-              const SizedBox(height: 50),
-              SizedBox(
-                width: 300,
-                child: TextFormField(
-                  controller: inputAnswer10,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Enter your answer'),
-                ),
-              ),
-              const SizedBox(height: 50),
+              Widgets(qText: q10, textControl: inputAnswer10),
               ElevatedButton(
                 onPressed: () {
                   double answer = double.parse(inputAnswer10.text.trim());
