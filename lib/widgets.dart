@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 
 class Widgets extends StatelessWidget {
-  final PageController _pageController = PageController();
-
   final String qText;
+  var pageController;
+  var aText;
+  final int toPage;
 
   var textControl;
 
@@ -11,6 +12,9 @@ class Widgets extends StatelessWidget {
     super.key,
     required this.qText,
     required this.textControl,
+    required this.aText,
+    required this.toPage,
+    required this.pageController,
   });
 
   @override
@@ -39,6 +43,25 @@ class Widgets extends StatelessWidget {
         ),
         const SizedBox(
           height: 50,
+        ),
+        ElevatedButton(
+          onPressed: () {
+            double answer = double.parse(textControl.text.trim());
+            if (answer == aText) {
+              pageController.animateToPage(
+                toPage,
+                duration: const Duration(milliseconds: 400),
+                curve: Curves.easeInOut,
+              );
+            } else {
+              const snackBar = SnackBar(
+                content: Text('Oops! Wrong Answer'),
+                backgroundColor: Colors.brown,
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
+            }
+          },
+          child: const Text('Next'),
         ),
       ],
     );
