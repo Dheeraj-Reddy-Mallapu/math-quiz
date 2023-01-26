@@ -50,10 +50,10 @@ var q2 = '$num3 $op2 $num4';
 var q3 = '$num5 $op3 $num6';
 var q4 = '$num7 $op4 $num8';
 var q5 = '$num9 $op5 $num10';
-var q6 = '$num11 $op5 $num12';
-var q7 = '$num13 $op5 $num14';
-var q8 = '$num15 $op5 $num16';
-var q9 = '$num17 $op5 $num18';
+var q6 = '$num11 $op2 $num12';
+var q7 = '$num13 $op1 $num14';
+var q8 = '$num15 $op4 $num16';
+var q9 = '$num17 $op3 $num18';
 var q10 = '$num19 $op5 $num20';
 
 var a1 = eval(q1);
@@ -66,34 +66,3 @@ var a7 = eval(q7);
 var a8 = eval(q8);
 var a9 = eval(q9);
 var a10 = eval(q10);
-//var questions = <String>[
-//  '$num1 $operator $num2',
-//  '$num1 $operator $num2',
-//  '$num1 $operator $num2',
-//  '$num1 $operator $num2',
-//  '$num1 $operator $num2',
-//];
-//int question = Random().nextInt(questions.length);
-
-
-
-/*
-if (answer == q1) {
-  ElevatedButton(
-    onPressed: () {
-
-    }
-  )
-}
-Container(
-  color: Colors.blue,
-  child: Center(
-    child: ElevatedButton(
-      onPressed: () {
-        if (answer == q1) {
-          _pageController.animateToPage(
-            1,
-            duration: const Duration(milliseconds: 400),
-            curve: Curves.easeInOut,
-          );
-*/

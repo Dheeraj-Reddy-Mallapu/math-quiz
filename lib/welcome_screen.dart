@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import 'quiz_screen.dart';
+import 'greetings.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key, required this.title});
@@ -17,17 +18,6 @@ class WelcomeScreen extends StatelessWidget {
         children: [
           Container(
             alignment: Alignment.center,
-            padding: const EdgeInsets.all(10),
-            child: const Text(
-              'Hello, there!',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 32,
-              ),
-            ),
-          ),
-          Container(
-            alignment: Alignment.center,
             child: const Text(
               'Welcome to Math Quiz',
               style: TextStyle(
@@ -36,6 +26,10 @@ class WelcomeScreen extends StatelessWidget {
               ),
             ),
           ),
+          Container(
+              alignment: Alignment.center,
+              padding: const EdgeInsets.all(10),
+              child: Greetings()),
           SizedBox(
               width: 500,
               height: 350,
