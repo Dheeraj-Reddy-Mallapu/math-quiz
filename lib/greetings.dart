@@ -9,12 +9,12 @@ class Greetings extends StatelessWidget {
       (() {
         if (hour <= 12) {
           return 'Good Morning!';
-        } else if ((hour > 12) && (hour <= 16)) {
+        } else if (hour <= 15) {
           return 'Good Afternoon!';
-        } else if ((hour > 16) && (hour < 20)) {
+        } else if (hour < 22) {
           return 'Good Evening!';
         }
-        return 'Good Night';
+        return 'Good Night!';
       })(),
       style: const TextStyle(
         color: Colors.brown,
