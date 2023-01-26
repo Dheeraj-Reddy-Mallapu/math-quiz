@@ -39,8 +39,14 @@ class _QuizState extends State<Quiz> {
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Widgets(qText: q1, textControl: inputAnswer1),
-              ElevatedButton(
+              Widgets(
+                qText: q1,
+                textControl: inputAnswer1,
+                aText: a1,
+                toPage: 1,
+                pageController: _pageController,
+              ),
+              /*ElevatedButton(
                 onPressed: () {
                   double answer = double.parse(inputAnswer1.text.trim());
                   if (answer == a1) {
@@ -58,10 +64,10 @@ class _QuizState extends State<Quiz> {
                   }
                 },
                 child: const Text('Next'),
-              ),
+              ),*/
             ],
           ),
-          Column(
+          /*Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Widgets(qText: q2, textControl: inputAnswer2),
@@ -260,12 +266,18 @@ class _QuizState extends State<Quiz> {
                 child: const Text('Next'),
               ),
             ],
-          ),
+          ),*/
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Widgets(qText: q10, textControl: inputAnswer10),
-              ElevatedButton(
+              Widgets(
+                qText: q10,
+                textControl: inputAnswer10,
+                aText: a10,
+                toPage: 0,
+                pageController: _pageController,
+              ),
+              /*ElevatedButton(
                 onPressed: () {
                   double answer = double.parse(inputAnswer10.text.trim());
                   if (answer == a10) {
@@ -279,7 +291,7 @@ class _QuizState extends State<Quiz> {
                   }
                 },
                 child: const Text('Done'),
-              ),
+              ),*/
             ],
           ),
         ],
