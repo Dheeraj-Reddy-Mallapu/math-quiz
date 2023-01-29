@@ -1,13 +1,32 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:math_quiz/questions/q1.dart';
 
-import 'quiz_screen.dart';
 import 'greetings.dart';
 
-class WelcomeScreen extends StatelessWidget {
-  const WelcomeScreen({super.key, required this.title});
+class WelcomeScreen extends StatefulWidget {
+  const WelcomeScreen({
+    super.key,
+  });
 
-  final String title;
+  @override
+  State<WelcomeScreen> createState() => _WelcomeScreenState();
+}
+
+class _WelcomeScreenState extends State<WelcomeScreen> {
+  static const menuItems = <String>[
+    '5',
+    '10',
+  ];
+  final List<DropdownMenuItem<String>> dropDownMenuItems = menuItems
+      .map(
+        (String value) => DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        ),
+      )
+      .toList();
+  String? selectedVal;
 
   @override
   Widget build(BuildContext context) {
@@ -34,11 +53,23 @@ class WelcomeScreen extends StatelessWidget {
               width: 500,
               height: 350,
               child: SvgPicture.asset('assets/images/calculator.svg')),
+          DropdownButton(
+            value: selectedVal,
+            hint: const Text("No. of Q's"),
+            onChanged: (String? newValue) {
+              if (newValue != null) {
+                setState(() => selectedVal = newValue);
+              }
+            },
+            items: dropDownMenuItems,
+          ),
           ElevatedButton(
             onPressed: () {
               Navigator.push(context, MaterialPageRoute(
                 builder: (context) {
-                  return const Quiz();
+                  return Q1(
+                    qCount: selectedVal,
+                  );
                 },
               ));
             },

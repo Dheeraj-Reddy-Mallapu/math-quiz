@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 class Greetings extends StatelessWidget {
   int hour = DateTime.now().hour;
 
+  Greetings({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Text(
@@ -14,7 +16,7 @@ class Greetings extends StatelessWidget {
         } else if (hour < 22) {
           return 'Good Evening!';
         }
-        return 'Good Night!';
+        return '    Good Night!\n      Go to bed\nSWEET DREAMS';
       })(),
       style: const TextStyle(
         color: Colors.brown,

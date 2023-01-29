@@ -3,20 +3,24 @@ import 'package:math_quiz/questions/q2.dart';
 import 'package:math_quiz/quiz.dart';
 
 class Q1 extends StatefulWidget {
-  const Q1({super.key});
+  Q1({super.key, required this.qCount});
+  var qCount;
 
   @override
-  State<Q1> createState() => _Q1State();
+  State<Q1> createState() => _Q1State(qCount);
 }
 
 class _Q1State extends State<Q1> {
   final inputAnswer = TextEditingController();
 
+  _Q1State(this.qCount);
+  var qCount;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Question - 1'),
+        title: Text('Question - 1/$qCount'),
         centerTitle: true,
       ),
       body: Center(

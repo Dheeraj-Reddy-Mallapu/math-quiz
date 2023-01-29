@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
 class Widgets extends StatelessWidget {
-  final PageController _pageController = PageController();
-
   final String qText;
 
   var textControl;
