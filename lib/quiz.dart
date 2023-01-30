@@ -43,8 +43,6 @@ String op3 = operators[opL3];
 String op4 = operators[opL4];
 String op5 = operators[opL5];
 
-var questions = [q1, q2, q3, q4, q5];
-
 var q1 = '$num1 $op1 $num2';
 var q2 = '$num3 $op2 $num4';
 var q3 = '$num5 $op3 $num6';
@@ -56,13 +54,16 @@ var q8 = '$num15 $op4 $num16';
 var q9 = '$num17 $op3 $num18';
 var q10 = '$num19 $op5 $num20';
 
-var a1 = eval(q1);
-var a2 = eval(q2);
-var a3 = eval(q3);
-var a4 = eval(q4);
-var a5 = eval(q5);
-var a6 = eval(q6);
-var a7 = eval(q7);
-var a8 = eval(q8);
-var a9 = eval(q9);
-var a10 = eval(q10);
+int a1 = eval(q1);
+int a2 = eval(q2);
+int a3 = eval(q3);
+int a4 = eval(q4);
+int a5 = eval(q5);
+int a6 = eval(q6);
+int a7 = eval(q7);
+int a8 = eval(q8);
+int a9 = eval(q9);
+int a10 = eval(q10);
+
+List ansList = [a1, a2, a3, a4, a5, a6, a7, a8, a9, a10];
+List queList = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10];

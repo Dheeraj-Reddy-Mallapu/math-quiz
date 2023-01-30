@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Greetings extends StatelessWidget {
-  int hour = DateTime.now().hour;
+  final int hour = DateTime.now().hour;
 
   Greetings({super.key});
 

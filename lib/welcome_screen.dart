@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:math_quiz/questions/q1.dart';
+import 'package:math_quiz/q.dart';
 
 import 'greetings.dart';
 
@@ -14,72 +14,65 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
-  static const menuItems = <String>[
-    '5',
-    '10',
-  ];
-  final List<DropdownMenuItem<String>> dropDownMenuItems = menuItems
-      .map(
-        (String value) => DropdownMenuItem<String>(
-          value: value,
-          child: Text(value),
-        ),
-      )
-      .toList();
-  String? selectedVal;
-
   @override
   Widget build(BuildContext context) {
 //    var theme = Theme.of(context);
     return Scaffold(
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: ListView(
         children: [
-          Container(
-            alignment: Alignment.center,
-            child: const Text(
-              'Welcome to Math Quiz',
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 32,
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const SizedBox(height: 100),
+              Container(
+                alignment: Alignment.center,
+                child: const Text(
+                  'Welcome to Math Quiz',
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 32,
+                  ),
+                ),
               ),
-            ),
-          ),
-          Container(
-              alignment: Alignment.center,
-              padding: const EdgeInsets.all(10),
-              child: Greetings()),
-          SizedBox(
-              width: 500,
-              height: 350,
-              child: SvgPicture.asset('assets/images/calculator.svg')),
-          DropdownButton(
-            value: selectedVal,
-            hint: const Text("No. of Q's"),
-            onChanged: (String? newValue) {
-              if (newValue != null) {
-                setState(() => selectedVal = newValue);
-              }
-            },
-            items: dropDownMenuItems,
-          ),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.push(context, MaterialPageRoute(
-                builder: (context) {
-                  return Q1(
-                    qCount: selectedVal,
-                  );
+              Container(
+                  alignment: Alignment.center,
+                  padding: const EdgeInsets.all(10),
+                  child: Greetings()),
+              SizedBox(
+                  width: 500,
+                  height: 350,
+                  child: SvgPicture.asset('assets/images/calculator.svg')),
+              SizedBox(
+                width: 130,
+                child: TextFormField(
+                  controller: numOfQs,
+                  keyboardType: TextInputType.number,
+                  decoration: const InputDecoration(
+                      border: OutlineInputBorder(),
+                      labelText: 'No.of Qs(max 10)'),
+                ),
+              ),
+              const SizedBox(height: 25),
+              ElevatedButton(
+                onPressed: () {
+                  Navigator.pushReplacement(context, MaterialPageRoute(
+                    builder: (context) {
+                      return const Q();
+                    },
+                  ));
                 },
-              ));
-            },
-            child: const Text(
-              "Let's math!",
-            ),
+                child: const Text(
+                  "Let's math!",
+                ),
+              ),
+              const SizedBox(width: 20),
+            ],
           ),
-          const SizedBox(width: 20),
         ],
       ),
     );
   }
 }
+
+final TextEditingController numOfQs = TextEditingController(text: '5');
+int numQ = int.parse(numOfQs.text.trim());
