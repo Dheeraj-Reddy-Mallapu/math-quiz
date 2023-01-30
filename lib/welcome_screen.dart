@@ -48,7 +48,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   keyboardType: TextInputType.number,
                   decoration: const InputDecoration(
                       border: OutlineInputBorder(),
-                      labelText: 'No.of Qs(max 10)'),
+                      labelText: 'No.of Qs(max 20)'),
                 ),
               ),
               const SizedBox(height: 25),
