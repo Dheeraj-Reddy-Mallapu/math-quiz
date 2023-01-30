@@ -29,7 +29,6 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                 child: const Text(
                   'Welcome to Math Quiz',
                   style: TextStyle(
-                    color: Colors.black,
                     fontSize: 32,
                   ),
                 ),

@@ -19,7 +19,7 @@ class Greetings extends StatelessWidget {
         return '    Good Night!\n      Go to bed\nSWEET DREAMS';
       })(),
       style: const TextStyle(
-        color: Colors.brown,
+        color: Colors.deepOrange,
         fontSize: 32,
       ),
     );
