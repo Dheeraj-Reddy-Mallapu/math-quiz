@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           colorScheme: darkDynamic ?? _defaultDarkColorScheme,
         ),
-        themeMode: ThemeMode.dark,
         home: const WelcomeScreen(),
       );
     }));
