@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:math_quiz/answers_screen.dart';
 import 'package:math_quiz/questions.dart';
 import 'welcome_screen.dart';
 import 'package:restart_app/restart_app.dart';
@@ -12,7 +13,6 @@ class Q extends StatefulWidget {
 
 class _QState extends State<Q> {
   final inputAnswer = TextEditingController();
-  //int ans = a1;
   int index = 0;
   int score = 0;
 
@@ -68,6 +68,15 @@ class _QState extends State<Q> {
                       labelText: 'Enter your answer'),
                 ),
               ),
+            if (index >= numQ)
+              ElevatedButton(
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const Answers()));
+                  },
+                  child: const Text('Show Answers')),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
