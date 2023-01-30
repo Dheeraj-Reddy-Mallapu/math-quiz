@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:math_quiz/q.dart';
+import 'package:math_quiz/quiz_screen.dart';
 
 import 'greetings.dart';
 
