@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:math_quiz/answers_screen.dart';
 import 'package:math_quiz/questions.dart';
 import 'welcome_screen.dart';
 import 'package:restart_app/restart_app.dart';
@@ -69,20 +68,36 @@ class _QState extends State<Q> {
                 ),
               ),
             if (index >= numQ)
-              ElevatedButton(
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const Answers()));
-                  },
+              TextButton(
+                  onPressed: () => showModalBottomSheet(
+                        context: context,
+                        builder: (BuildContext context) => ListView.builder(
+                          itemCount: numQ,
+                          padding: const EdgeInsets.all(40.0),
+                          itemBuilder: (context, idx) {
+                            return ListTile(
+                              leading: CircleAvatar(
+                                  child: Text(
+                                '${idx + 1}',
+                                style: const TextStyle(fontSize: 20),
+                              )),
+                              title: Text('${queList[idx]}',
+                                  style: const TextStyle(fontSize: 23)),
+                              trailing: Text('${ansList[idx]}',
+                                  style: const TextStyle(
+                                      fontSize: 22,
+                                      fontWeight: FontWeight.bold)),
+                            );
+                          },
+                        ),
+                      ),
                   child: const Text('Show Answers')),
             Padding(
               padding: const EdgeInsets.all(16.0),
               child: ElevatedButton(
                 onPressed: () {
                   int answer = int.parse(inputAnswer.text.trim());
-                  if (answer == ansList[index] && index < (numQ - 1)) {
+                  if (answer == ansList[index] && index < numQ) {
                     inputAnswer.clear();
                     const snackBar = SnackBar(
                       content: Text('HURRAY! You Are Correct'),
