@@ -92,47 +92,49 @@ class _QState extends State<Q> {
                         ),
                       ),
                   child: const Text('Show Answers')),
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: ElevatedButton(
-                onPressed: () {
-                  int answer = int.parse(inputAnswer.text.trim());
-                  if (answer == ansList[index] && index < numQ) {
-                    inputAnswer.clear();
-                    const snackBar = SnackBar(
-                      content: Text('HURRAY! You Are Correct'),
-                      duration: Duration(seconds: 1),
-                      behavior: SnackBarBehavior.floating,
-                      backgroundColor: Colors.lightGreen,
-                    );
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    index++;
-                    score++;
-                    setState(() {});
-                  } else if (index >= numQ) {
-                    Restart.restartApp();
-                  } else {
-                    const snackBar = SnackBar(
-                      content: Text('Oops! Wrong Answer'),
-                      duration: Duration(seconds: 1),
-                      backgroundColor: Colors.brown,
-                      behavior: SnackBarBehavior.floating,
-                    );
-                    ScaffoldMessenger.of(context).showSnackBar(snackBar);
-                    index++;
-                    setState(() {});
-                  }
-                },
-                child: Text(
-                  (() {
-                    if (index < numQ) {
-                      return 'Next Question';
+            if (index < numQ)
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: ElevatedButton(
+                  onPressed: () {
+                    int answer = int.parse(inputAnswer.text.trim());
+                    if (answer == ansList[index]) {
+                      inputAnswer.clear();
+                      const snackBar = SnackBar(
+                        content: Text('HURRAY! You Are Correct'),
+                        duration: Duration(milliseconds: 750),
+                        behavior: SnackBarBehavior.floating,
+                        backgroundColor: Colors.lightGreen,
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      index++;
+                      score++;
+                      setState(() {});
+                    } else {
+                      inputAnswer.clear();
+                      const snackBar = SnackBar(
+                        content: Text('Oops! Wrong Answer'),
+                        duration: Duration(milliseconds: 750),
+                        backgroundColor: Colors.brown,
+                        behavior: SnackBarBehavior.floating,
+                      );
+                      ScaffoldMessenger.of(context).showSnackBar(snackBar);
+                      index++;
+                      setState(() {});
                     }
-                    return 'Play Again';
-                  })(),
+                  },
+                  child: const Text('Next'),
                 ),
               ),
-            ),
+            if (index >= numQ)
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: ElevatedButton(
+                    onPressed: () {
+                      Restart.restartApp();
+                    },
+                    child: const Text('Play Again')),
+              )
           ],
         ),
       ),
