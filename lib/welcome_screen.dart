@@ -14,9 +14,9 @@ class WelcomeScreen extends StatefulWidget {
 }
 
 class _WelcomeScreenState extends State<WelcomeScreen> {
+  double noOfQs = 5;
   @override
   Widget build(BuildContext context) {
-//    var theme = Theme.of(context);
     return Scaffold(
       body: ListView(
         children: [
@@ -33,32 +33,21 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ),
                 ),
               ),
-              Container(
-                  alignment: Alignment.center,
-                  padding: const EdgeInsets.all(10),
-                  child: Greetings()),
-              SizedBox(
-                  width: 500,
-                  height: 350,
-                  child: SvgPicture.asset('assets/images/calculator.svg')),
-              SizedBox(
-                width: 130,
-                child: TextFormField(
-                  controller: numOfQs,
-                  keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'No.of Qs(max 20)'),
-                ),
+              Container(alignment: Alignment.center, padding: const EdgeInsets.all(10), child: Greetings()),
+              SizedBox(width: 500, height: 350, child: SvgPicture.asset('assets/images/calculator.svg')),
+              Text("Number of Questions: ${noOfQs.round()}"),
+              Slider(
+                value: noOfQs,
+                onChanged: ((value) => setState(() => noOfQs = value)),
+                min: 1,
+                max: 20,
+                divisions: 19,
+                label: '$noOfQs',
               ),
               const SizedBox(height: 25),
               ElevatedButton(
                 onPressed: () {
-                  Navigator.pushReplacement(context, MaterialPageRoute(
-                    builder: (context) {
-                      return const Q();
-                    },
-                  ));
+                  Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => const Q(), settings: RouteSettings(arguments: noOfQs)));
                 },
                 child: const Text(
                   "Let's math!",
@@ -72,6 +61,3 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
     );
   }
 }
-
-final TextEditingController numOfQs = TextEditingController(text: '5');
-int numQ = int.parse(numOfQs.text.trim());

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:math_quiz/questions.dart';
-import 'welcome_screen.dart';
 import 'package:restart_app/restart_app.dart';
 
 class Q extends StatefulWidget {
@@ -17,12 +16,13 @@ class _QState extends State<Q> {
 
   @override
   Widget build(BuildContext context) {
+    final numQ = ModalRoute.of(context)!.settings.arguments as double;
     return Scaffold(
       appBar: AppBar(
         title: Text(
           (() {
             if (index < numQ) {
-              return 'Question - ${index + 1}/$numQ';
+              return 'Question - ${index + 1}/${numQ.round()}';
             }
             return '';
           })(),
@@ -41,7 +41,7 @@ class _QState extends State<Q> {
                     if (index < numQ) {
                       return queList[index];
                     }
-                    return 'Your Score: $score of $numQ';
+                    return 'Your Score: $score of ${numQ.round()}';
                   })(),
                   style: const TextStyle(fontSize: 55),
                   textAlign: TextAlign.center,
@@ -62,9 +62,7 @@ class _QState extends State<Q> {
                     return null;
                   },
                   keyboardType: TextInputType.number,
-                  decoration: const InputDecoration(
-                      border: OutlineInputBorder(),
-                      labelText: 'Enter your answer'),
+                  decoration: const InputDecoration(border: OutlineInputBorder(), labelText: 'Enter your answer'),
                 ),
               ),
             if (index >= numQ)
@@ -72,7 +70,7 @@ class _QState extends State<Q> {
                   onPressed: () => showModalBottomSheet(
                         context: context,
                         builder: (BuildContext context) => ListView.builder(
-                          itemCount: numQ,
+                          itemCount: numQ.round(),
                           padding: const EdgeInsets.all(40.0),
                           itemBuilder: (context, idx) {
                             return ListTile(
@@ -81,12 +79,8 @@ class _QState extends State<Q> {
                                 '${idx + 1}',
                                 style: const TextStyle(fontSize: 20),
                               )),
-                              title: Text('${queList[idx]}',
-                                  style: const TextStyle(fontSize: 23)),
-                              trailing: Text('${ansList[idx]}',
-                                  style: const TextStyle(
-                                      fontSize: 22,
-                                      fontWeight: FontWeight.bold)),
+                              title: Text('${queList[idx]}', style: const TextStyle(fontSize: 23)),
+                              trailing: Text('${ansList[idx]}', style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold)),
                             );
                           },
                         ),
